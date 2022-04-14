@@ -305,6 +305,10 @@ body::-webkit-scrollbar-thumb:hover, body::-webkit-scrollbar-thumb:active {
     width: 10%;
 }
 
+#projet6 {
+    grid-area: 3 / 2 / -1 / -1;
+}
+
 
 
 /* Footer */

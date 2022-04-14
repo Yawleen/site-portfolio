@@ -40,7 +40,7 @@ window.addEventListener("resize", () => {
 
 /* Apparition/disparition de l'overlay sur les box "projet" sur écran de -650px de large + gestion des redirections */
 
-const liens = ["http://annotweet.fr/page_inscription.php"];
+const liens = ["http://annotweet.fr/page_inscription.php", "./projets/projets-html-css/CV.html", "./projets/projets-javascript/le-juste-prix-avec-javascript/index.html"];
 
 projets.forEach((projet) => {
   projet.addEventListener("click", (e) => {

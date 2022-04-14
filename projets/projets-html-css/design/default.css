@@ -1,0 +1,508 @@
+body {
+    font-family: "Lato", sans-serif;
+}
+
+h2 {
+    text-transform: uppercase;
+    font-size: 1.5em;
+}
+
+img {
+    max-width: 52%;
+    height: auto;
+}
+
+.rel {
+    width: 35%;
+}
+
+.navbar {
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-bottom: 1px solid white;
+}
+
+.navbar-nav {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.nav-link {
+    color: white !important;
+    margin: 0 6px;
+}
+
+.nav-link.active, .nav-link:hover {
+    background-color: rgb(255, 255, 255) ;
+    color: #212529 !important;
+    border-radius: 2px;
+}
+
+section {
+    padding: 50px 0 80px 0;
+}
+
+section .heading {
+   text-align: center; 
+   padding-bottom: 20px;
+}
+
+#about {
+    background-color: rgb(243, 243, 243);
+}
+
+
+.rel {
+    position: relative;
+    bottom: -54px;
+}
+
+.divider {
+    margin: 0 auto 80px;
+    background-color: #212529;
+    width: 100px;
+    height: 2px;
+}
+
+.divider2 {
+    margin: 0 auto 50px;
+    background-color: #212529;
+    width: 100px;
+    height: 2px;
+}
+
+
+.divider.dark {
+    background-color: #212529;
+}
+
+#skills .heading h2 {
+    color: #212529;
+}
+
+#skills .progress {
+    height: 35px;
+    margin: 30px 20px;
+}
+
+#skills .progress:last-child {
+    margin-bottom: 0;
+}
+
+#skills .progress-bar {
+    background-color: #212529;
+}
+
+#skills .progress-bar p {
+    text-shadow: 1px 1px 1px #000;
+    margin-bottom: 3px;
+    text-transform: uppercase;
+}
+
+#experiences {
+    background-color: rgb(243, 243, 243);
+}
+
+
+#experiences .heading h2 {
+    color: #212529;
+}
+
+ul {
+    list-style: none;
+}
+
+
+.timeline {
+    padding: 30px 10px;
+    position: relative;
+}
+
+.timeline::before {
+    content: " ";
+    top: 0;
+    bottom: 0;
+    position: absolute;
+    width: 5px;
+    background-color: #333;
+    left: 50%;
+    margin-left: -2.5px;
+}
+
+.timeline > li {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.timeline > li::before, .timeline > li::after {
+    content: " ";
+    display: table;
+}
+
+.timeline > li::after {
+    clear: both;
+}
+
+.timeline li .timeline-badge {
+    color: #fff;
+    width: 50px;
+    line-height: 50px;
+    font-size: 20px;
+    text-align: center;
+    position: absolute;
+    top: 16px;
+    left: 50%;
+    margin-left: -25px;
+    background-color: #333;
+    border-radius: 50%;
+}
+
+.timeline-panel-container {
+    width: 50%;
+    float: left;
+}
+
+.timeline-panel-container-inverted {
+    width: 50%;
+    float: right;
+}
+
+.timeline-panel {
+    float: right;
+    margin-right: 60px;
+    border: 1px solid #d4d4d4;
+    border-radius: 7px;
+    padding: 20px 25px;
+    position: relative;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+    background: #fff;
+}
+
+.timeline-panel-container-inverted .timeline-panel {
+    float: left;
+    margin-left: 60px;
+}
+
+.timeline-panel-container .timeline-panel::after {
+    position: absolute;
+    top: 27px;
+    right: -14px;
+    display: inline-block;
+    border-top: 14px solid transparent;
+    border-left: 14px solid #fff;
+    border-right: 0 solid #fff;
+    border-bottom: 14px solid transparent;
+    content: " ";
+}
+
+.timeline-panel-container-inverted .timeline-panel::after {
+    position: absolute;
+    top: 27px;
+    left: -14px;
+    display: inline-block;
+    border-top: 14px solid transparent;
+    border-right: 14px solid #fff;
+    border-left: 0 solid #fff;
+    border-bottom: 14px solid transparent;
+    content: " ";
+}
+
+.timeline-heading h3 {
+    margin-top: 5px;
+    font-size: 20px;
+}
+
+.timeline-heading h4 {
+    color: #212529;
+}
+
+#education .heading h2 {
+    color: #212529;
+}
+
+.education-block {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 30px;
+    background-color: #e9ecef;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    height: 450px;
+}
+
+.education-block h5 {
+    color: #888;
+    font-size: 15px;
+    margin-bottom: 15px;
+}
+
+.education-block span {
+    font-size: 35px;
+}
+
+.education-block h3 {
+    color: #212529;
+    margin: 15px 0px;
+}
+
+.education-block h4 {
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+
+
+footer {
+    margin-top: 15px;
+    background-color: #333;
+}
+
+footer p:first-child {
+    font-size: 0.8em;
+    margin: 0;
+}
+
+footer p:last-child {
+    font-size: 0.65em;
+    margin: 0;
+}
+
+.up {
+    color: #333;
+    font-size: 25px;
+    line-height: 35px;
+}
+
+.up:hover {
+    font-size: 27px;
+}
+
+
+@media all and (max-width:576px) {
+    #skills .progress {
+        height: 25px;
+    }
+
+    #skills .progress-bar p {
+        margin-top: 5px;
+    }
+
+}
+
+
+@media all and (max-width:767px) {
+
+    p[style="text-align: justify"] {
+        font-size: 0.87em;
+    }
+
+    #about div:nth-child(2) {
+      width: 90%;
+    }  
+    
+    .rel {
+        width: 65%;
+    }
+
+    .heading h2 {
+        font-size: 1.35em;
+    }
+
+    .timeline-heading h3 {
+        font-size: 18px;
+    }
+
+    .timeline-heading h5 {
+        font-size: 1.15em;
+    }
+
+    .text-muted {
+        font-size: 0.8em;
+    }
+
+    .container {
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+
+    .timeline-panel-container .timeline-panel::after {
+        top: -12px;
+        right: 54%;
+        border-top: 0 solid #fff;
+        border-left: 14px solid transparent;
+        border-right: 14px solid transparent;
+        border-bottom: 14px solid #fff;
+    }
+
+    
+    .timeline-panel-container-inverted .timeline-panel::after {
+        top: -12px;
+        left: 50.5%;
+        border-top: 0 solid #fff;
+        border-left: 14px solid transparent;
+        border-right: 14px solid transparent;
+        border-bottom: 14px solid #fff;
+    }
+
+
+    .timeline-panel-container {
+        width: 80%;
+        position: relative;
+        left: 15%;
+}
+
+
+/* 400 - 768 */
+
+@media all and (max-width:400px) {
+.timeline-panel-container .timeline-panel::after {
+    top: -12px;
+    right: 52.5%;
+    border-top: 0 solid #fff;
+    border-left: 14px solid transparent;
+    border-right: 14px solid transparent;
+    border-bottom: 14px solid #fff;
+}
+
+
+.timeline-panel-container-inverted .timeline-panel::after {
+    top: -12px;
+    left: 49.5%;
+    border-top: 0 solid #fff;
+    border-left: 14px solid transparent;
+    border-right: 14px solid transparent;
+    border-bottom: 14px solid #fff;
+
+}
+}
+
+.timeline-panel-container-inverted {
+    width: 80%;
+    position: relative;
+    right: 15%;
+}
+
+
+    .timeline-panel-container .timeline-panel {
+       margin-right: 0;
+       width: 100%;
+    }
+
+    .timeline-panel-container-inverted .timeline-panel {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .timeline > li {
+        margin-bottom: 150px;
+        margin-top: 80px;
+    }
+
+    .timeline::before {
+        left: 48%;
+        margin-left: 0;
+        bottom: 90px;
+        width: 6px;
+    }
+
+    .timeline li .timeline-badge {
+        width: 40px;
+        line-height: 40px;
+        top: -65px;
+        left: 49.5%;
+    }
+
+    .education-block h3 {
+       font-size: 1.4em;
+    }
+
+    .education-block h4 {
+        font-size: 1em !important;
+    }
+
+    .education-block p {
+        font-size: 0.87em;
+    }
+
+}
+
+@media all and (min-width:768px) {
+    img {
+        max-width: 46%;
+        height: auto;
+    }
+
+    .rel {
+        width: 55%;
+    }
+
+    #about div:nth-child(2) {
+        width: 70%;
+    }
+
+    .timeline-panel {
+        width: 100%;
+    }
+    
+    .education-block {
+        height: 490px;
+        width: 100%;
+}
+}
+
+@media all and (min-width:992px) {
+
+    .rel {
+        width: 41%;
+    }
+
+    .timeline-panel {
+        width: 90%;
+    }
+
+    .education-block {
+        height: 450px;
+        width: 90%;
+}
+
+#about div:nth-child(2) {
+    width: 50%;
+}
+
+}
+
+@media all and (min-width: 1200px)
+{
+h2 {
+    font-size: 1.5rem !important;
+}
+
+h3 {
+    font-size: 1.4rem !important;
+}
+
+h5 {
+    font-size: 1.1rem !important;
+}
+
+}
+
+@media all and (min-width:1400px) {
+
+    img {
+        max-width: 41%;
+        height: auto;
+    }
+
+    .timeline-panel {
+        width: 80%;
+    }
+
+    .rel {
+        width: 35%;
+    }
+}
+
+

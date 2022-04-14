@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Martel+Sans:wght@200;400&family=Montserrat:wght@100;200;300;400&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  display: flex;
+  flex-direction: column;
+  color: #222;
+  background-image: linear-gradient(135deg, rgb(172, 76, 34),rgb(205, 125, 36),rgb(237, 173, 37));
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+.container-fluid {
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0 0 0;
+  flex-grow: 1;
+}
+
+h1 {
+  font-family: Bebas Neue, Helvetica, sans-serif;
+  font-size: clamp(40px, 5vw, 50px);
+}
+
+h1.active {
+  animation: shine 0.4s 5;
+}
+
+.col-8, #instructions {
+  max-width: 700px;
+  width: 100%;
+  
+}
+
+#prix::placeholder, .btn {
+  font-size: 15px;
+}
+
+#prix:focus {
+  outline: 2px solid #757780;
+}
+
+#instructions {
+  color: #f1f1f1;
+}
+
+.instruction {
+  padding: 15px;
+  margin: 10px 0;
+}
+
+.plus {
+  background-color: #f67280;
+}
+
+.moins {
+  background-color: #ffa372;
+}
+
+.fini {
+  background-color : #0c9463;
+}
+
+.last {
+  background-color: #e8a525;
+}
+
+footer {
+  font-weight: 400;
+  font-size: 12px;
+}
+
+footer p {
+  margin: 0;
+}
+
+footer p:first-of-type {
+  color: #f1f1f1;
+}
+
+
+
+@media all and (max-width: 600px) {
+  
+  .col-2 {
+    display: none;
+  }
+
+  .col-10 {
+    width: 100%;
+  }
+
+  #prix::placeholder, #instructions {
+    font-size: 14px;
+  }
+
+}
+
+@keyframes shine {
+  100% {
+    color: #e8a525;
+  }  
+}  
+

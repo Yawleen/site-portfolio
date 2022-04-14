@@ -1,0 +1,28 @@
+html, body {
+    height: 100%;
+  }
+  
+  #ville {
+    text-transform: capitalize;
+  }
+  
+  #temperature {
+    font-size: 2em;
+  }
+  
+  #changer {
+    cursor: pointer;
+  }
+
+  .cont {
+      height: auto;
+      width: 500px;
+  }
+
+  .img {
+      margin: 0 auto;
+      width: 30%;
+      height: auto;
+      display: block;
+  }
+
