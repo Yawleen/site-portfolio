@@ -3,10 +3,9 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
-html, body {
+body {
   display: flex;
   flex-direction: column;
   color: #222;
@@ -33,7 +32,7 @@ h1 {
 }
 
 h1.active {
-  animation: shine 0.4s 5;
+  animation: shine 0.4s 5 linear;
 }
 
 .col-8, #instructions {

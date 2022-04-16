@@ -1,10 +1,10 @@
 const btnMenu = document.querySelector("#btnMenu");
 const listeNav = document.querySelector("#navBar ul");
+const listeEl = document.querySelectorAll("#navBar ul li");
 const barreMedia = document.querySelector("#media");
 const signe = document.querySelector("#media span i");
 const sectionProjets = document.querySelector("#projets");
 const projets = Array.from(document.querySelectorAll(".projet"));
-
 
 /* Apparition/disparition du menu sur écran de -650px de large */
 
@@ -14,7 +14,6 @@ btnMenu.addEventListener("click", () => {
   barreMedia.classList.toggle("inactive"); // Lorsque le menu est affiché, la barre des media est inaccessible
   sectionProjets.classList.toggle("inactive"); // " ", la section "projets" est inaccessible
 });
-
 
 /* Ouverture/fermeture de la barre des media sur écran de -650px de large */
 
@@ -31,16 +30,25 @@ window.addEventListener("resize", () => {
   if (window.matchMedia("(min-width: 650px)").matches) {
     signe.setAttribute("class", "fa-solid fa-plus");
   } else {
-    if (barreMedia.getAttribute("class") === "active" || barreMedia.getAttribute("class") === "active inactive") {
+    if (
+      barreMedia.getAttribute("class") === "active" ||
+      barreMedia.getAttribute("class") === "active inactive"
+    ) {
       signe.setAttribute("class", "fa-solid fa-minus");
     }
   }
 });
 
-
 /* Apparition/disparition de l'overlay sur les box "projet" sur écran de -650px de large + gestion des redirections */
 
-const liens = ["http://annotweet.fr/page_inscription.php", "./projets/projets-html-css/CV.html", "./projets/projets-javascript/le-juste-prix-avec-javascript/index.html"];
+const liens = [
+  "http://annotweet.fr/page_inscription.php",
+  "./projets/projets-html-css/CV.html",
+  "./projets/projets-javascript/le-juste-prix-avec-javascript/index.html",
+  "./projets/projets-javascript/application-meteo/application-meteo.html",
+  "./projets/projets-javascript/to-do-list/to-do-list.html",
+  "./projets/projets-javascript/recherche-github/recherche-github.html",
+];
 
 projets.forEach((projet) => {
   projet.addEventListener("click", (e) => {
@@ -59,7 +67,6 @@ projets.forEach((projet) => {
   });
 });
 
-
 /* Disparition de la barre de navigation sur écran de +650px lorsqu'on arrive à la section "projets" */
 
 window.addEventListener("scroll", () => {
@@ -75,6 +82,29 @@ window.addEventListener("scroll", () => {
   } else {
     if (listeNav.getAttribute("class") === "hidden") {
       listeNav.classList.remove("hidden");
+    }
+  }
+});
+
+/* Scrollspy */
+
+window.addEventListener("scroll", () => {
+  if (window.matchMedia("(min-width: 650px)").matches) {
+    if (window.pageXOffset * 2 <= document.body.clientWidth) {
+      listeEl[1].getAttribute("class") === "frame"
+        ? (listeEl[1].classList.remove("frame"),
+          listeEl[0].classList.add("frame"))
+        : listeEl[0].classList.add("frame");
+    } else if (
+      window.pageXOffset * 2 > document.body.clientWidth &&
+      window.pageXOffset * 2 < document.body.clientWidth * 2 + 1000
+    ) {
+      listeEl[0].getAttribute("class") === "frame"
+        ? (listeEl[0].classList.remove("frame"),
+          listeEl[1].classList.add("frame"))
+        : listeEl[1].classList.add("frame");
+    } else {
+      listeEl[1].classList.remove("frame");
     }
   }
 });

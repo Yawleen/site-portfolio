@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Indie+Flower&family=Martel+Sans:wght@200;400&family=Montserrat:wght@100;200;300;400&family=Permanent+Marker&display=swap');
+
 *, ::after, ::before {
     padding: 0;
     margin: 0;
@@ -6,99 +8,153 @@
 
 
 body {
-    background: #333;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-.container-fluid {
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    min-width: 320px;
+    min-height: 100vh;
+    color: #222;
+    font-family: Montserrat, sans-serif;
+    background-image: url(img/fond-galaxie.jpg);
+    background-size: cover;
+    background-position: center 75%;
+    background-attachment: fixed;
+    padding-top: 12rem;
 }
+
+.container {
+    width: 100%;
+    flex-grow: 1;
+}
+
 
 h1 {
     color: #f1f1f1;
+    font-size: clamp(25px, 5vw, 40px);
     text-align: center;
-    margin: 50px 0;
+    margin-bottom: 30px;
 }
 
 form, .affichage {
     width: 50%;
-    max-width: 800px;
-    min-width: 500px;
+    max-width: 750px;
+    min-width: 320px;
+    margin: 0 auto;
 }
 
-.affichage {
-    margin-bottom: 50px;
-}
 
 input {
     display: block;
     width: 100%;
     padding: 15px;
-    font-size: 20px;
+    font-size: 1rem;
 }
 
 .affichage {
     display: flex;
     justify-content: center;
+    margin-top: 120px;
 }
 
 .carte {
-    width: 500px;
-    height: fit-content;
-    position: relative;
-    margin-top: 100px;
-    padding-bottom: 20px;
-    border-radius: 5px;
-    background: #f1f1f1;
+    opacity: 0;
+    width: 420px;
+    transition: opacity 0.7s;
 }
 
-.avatar {
-    height: 150px;
-    width: 150px;
-    border-radius: 50%;
-    position: absolute;
-    top: 28%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: #000;
-    border: 1px solid #000;
+.appear {
+    opacity: 1;
 }
 
 .cont-infos {
-    border-top: 1px dashed #000;
+    display: grid;
+    grid-template: repeat(3, 1fr) / repeat(2, 1fr);
+    row-gap: 10px;
+    align-items: center;
+    text-align: center;
     list-style-type: none;
+    background: #f1f1f1;
+    padding: 20px 0;
+    border-radius: 5px;
+}
+
+#bg-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 320px;
+    position: relative;
+}
+
+#bg-img img[alt="avatar"] {
+    height: 140px;
+    width: 140px;
+    border-radius: 50%;
+    border: 2px solid #f1f1f1;
+    z-index: 2;
+}
+
+#bg-img img[alt="chat github"] {
+    position: absolute;
+    width: 380px;
+    height: 100%;
+    object-fit: cover;
 }
 
 li {
-    padding: 10px 20px;
-    text-align: justify;
-    font-size: 22px;
+    padding: 6px;
+    font-size: 1.1rem;
 }
 
-li:nth-child(1) {
-    margin-top: 30px;
-    text-align: center;
-    font-size: 25px;
+li:first-child {
+    grid-column: span 2;
+    font-size: 1.56rem;
     font-weight: bold;
 }
 
-#bg {
+li:first-child span {
     display: block;
-    background: url("img/github.png");
-    background-position: center;
+    font-size: 0.8rem;
+    font-weight: normal;
+    margin-top: 5px;
+}
+
+.etoiles {
+    position: relative;
     width: 100%;
-    height: 350px;
+}
+
+.etoiles::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -3px;
+    height: 60%;
+    border-left: 3px solid #222;
+    transform: translateY(-50%);
+}
+
+.bio {
+    grid-column: span 2;
+}
+
+.bio span {
+    font-size: 1.4rem;
 }
 
 
-@media all and (max-width: 800px) {
-    form, .affichage {
-        width: 80%;
-        min-width: 350px;
+footer {
+    color: #f1f1f1;
+    font-size: 0.75rem;
+    padding: 1.5rem;
+    margin-top: 20px;
+}
+
+@media all and (max-width: 650px) {
+
+    .affichage {
+        margin-top: 60px;
     }
-    
 }
+

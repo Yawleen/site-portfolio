@@ -35,7 +35,7 @@ a {
 
 body {
     display: grid;
-    grid-template: minmax(700px, 100vh) / repeat(2, 100vw) auto;
+    grid-template: minmax(730px, 100vh) / repeat(2, 100vw) auto;
     column-gap: 10px;
     font-family: Montserrat, sans-serif;
     overflow-x: scroll;
@@ -59,6 +59,11 @@ body::-webkit-scrollbar-thumb {
 body::-webkit-scrollbar-thumb:hover, body::-webkit-scrollbar-thumb:active {
 	background-color: #222;
 }
+
+h2 {
+    display: none;
+}
+
 
 /* Barre de navigation */
 
@@ -114,8 +119,9 @@ body::-webkit-scrollbar-thumb:hover, body::-webkit-scrollbar-thumb:active {
     border-color: var(--lightColor);
 }
 
-#navBar ul li:hover a {
-    /* transform: scale(1.05); */
+#navBar ul li.frame {
+    border-color: var(--lightColor);
+    background: rgba(128, 128, 128, 0.8);
 }
 
 #navBar ul li a {
@@ -183,8 +189,8 @@ body::-webkit-scrollbar-thumb:hover, body::-webkit-scrollbar-thumb:active {
     justify-content: center;
     align-items: center;
     position: relative;
-    /* background: var(--brightColor); */
-    background-image: linear-gradient(0deg, rgb(249, 66, 6),rgb(250, 134, 22),rgb(251, 202, 37));
+    background-image: repeating-linear-gradient(90deg, rgb(16, 16, 16) 0px, rgb(16, 16, 16) 35px,rgb(9, 9, 9) 35px, rgb(9, 9, 9) 70px,rgb(1, 1, 1) 70px, rgb(1, 1, 1) 105px,rgb(6, 6, 6) 105px, rgb(6, 6, 6) 140px,rgb(4, 4, 4) 140px, rgb(4, 4, 4) 175px,rgb(14, 14, 14) 175px, rgb(14, 14, 14) 210px,rgb(11, 11, 11) 210px, rgb(11, 11, 11) 245px,rgb(19, 19, 19) 245px, rgb(19, 19, 19) 280px);    
+    background-size: cover;
     background-attachment: fixed;
 }
 
@@ -203,19 +209,148 @@ body::-webkit-scrollbar-thumb:hover, body::-webkit-scrollbar-thumb:active {
 /* Formation */
 
 #formation {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
     position: relative;
-    background-image: linear-gradient(90deg, rgb(37, 163, 10),rgb(138, 191, 54),rgb(239, 219, 97));
-    background-attachment: fixed;
+    background: #f1f1f1;
 }
 
+#timeline {
+    display: grid;
+    grid-template: auto 5px auto / repeat(5, 220px);
+    max-width: 100vw;
+    max-height: 80%;
+    row-gap: 30px;
+    padding: 0 80px;
+    margin-bottom: 65px;
+}
+
+
+#formation1 {
+    grid-area: 1 / 1 / 2 / 2;
+    border-top-right-radius: 15px;
+}
+
+#formation2 {
+    grid-area: 3 / 2 / 4 / 3;
+    border-top-right-radius: 15px;
+}
+
+#formation3 {
+    grid-area: 1 / 3 / 2 / 4;
+    border-top-right-radius: 15px;
+}
+
+#formation4 {
+    grid-area: 3 / 4 / 4 / 5;
+}
+
+#formation5 {
+    grid-area: 1 / 5 / 2 / 6;
+    border-top-right-radius: 19.5px;
+}
+
+.formation {
+    position: relative;
+    background-color: var(--lightColor);
+    padding: 22.5px;
+    border-radius: 3px;
+    box-shadow: 0 0 3px var(--silverColor);
+}
+
+.formation h4 {
+    font-size: 1.6rem;
+    margin-bottom: 8px;
+}
+
+.formation p {
+    text-align: justify;
+    font-size: 1.2rem;
+}
+
+#formation5 p:last-of-type {
+    margin-bottom: 12px; /* 7 */
+}
+
+
+.formation p:first-of-type {
+    position: absolute;
+    left: 50%;
+    background: #222;
+    padding: 7px;
+    border-radius: 2px;
+    color: var(--lightColor);
+    transform: translateX(-50%);
+    font-weight: 300;
+}
+
+:is(#formation1, #formation3, #formation5) p:first-of-type {
+    bottom: -10px;
+}
+
+:is(#formation2, #formation4) p:first-of-type {
+    top: -15px;
+}
+
+.formation span {
+    position: absolute;
+    font-size: 3.3rem;
+    color: #333;
+    top: -25px;
+} 
+
+:is(#formation1, #formation2, #formation3) span {
+    right: -18px;
+}
+
+#formation5 span {
+    top: -20px;
+    right: -10px;
+}
+
+:is(#formation1, #formation2, #formation3) span {
+    transform: rotate(32deg);
+}
+
+#formation4 span {
+    top: initial;
+    bottom: 10px;
+    right: 10px;
+}
+
+#ligne {
+    display: grid;
+    grid-template: 100% / repeat(5, 1fr);
+    grid-area: 2 / 1 / 3 / -1;
+    width: 100%;
+    background: var(--darkColor);
+    justify-items: center;
+    align-items: center;
+}
+
+.point {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 3px solid #f1f1f1;
+    background: var(--darkColor);
+}
+
+#formation .footer {
+    color: var(--darkColor);
+}
 
 /* Projets */
 
 #projets {
     display: flex; /* ! */
-    align-items: center;  /* ! */
+    flex-direction: column;
+    justify-content: center;  /* ! */
     position: relative;
-    background-image: linear-gradient(135deg, rgb(172, 76, 34),rgb(205, 125, 36),rgb(237, 173, 37));
+    background-image: repeating-linear-gradient(90deg, rgb(16, 16, 16) 0px, rgb(16, 16, 16) 35px,rgb(9, 9, 9) 35px, rgb(9, 9, 9) 70px,rgb(1, 1, 1) 70px, rgb(1, 1, 1) 105px,rgb(6, 6, 6) 105px, rgb(6, 6, 6) 140px,rgb(4, 4, 4) 140px, rgb(4, 4, 4) 175px,rgb(14, 14, 14) 175px, rgb(14, 14, 14) 210px,rgb(11, 11, 11) 210px, rgb(11, 11, 11) 245px,rgb(19, 19, 19) 245px, rgb(19, 19, 19) 280px);    
+    background-size: cover;
     background-attachment: fixed;
 }
 
@@ -234,6 +369,7 @@ body::-webkit-scrollbar-thumb:hover, body::-webkit-scrollbar-thumb:active {
 .projet {
     position: relative;
     background-color: var(--lightColor);
+    filter: grayscale(20%);
     will-change: transform;
     transition: transform 0.2s;
     overflow: hidden;
@@ -277,12 +413,11 @@ body::-webkit-scrollbar-thumb:hover, body::-webkit-scrollbar-thumb:active {
 }
 
 .projet:hover .illustration {
-    filter: blur(2.5px);
+    filter: blur(2px);
  }
 
 .projet:hover .description {
    opacity: 1;
-   /* border-color: var(--lightColor); */
 }
 
 .description h5 {
@@ -292,7 +427,7 @@ body::-webkit-scrollbar-thumb:hover, body::-webkit-scrollbar-thumb:active {
 }
 
 .description p {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     text-align: justify;
     pointer-events: none;
 }
@@ -320,7 +455,7 @@ body::-webkit-scrollbar-thumb:hover, body::-webkit-scrollbar-thumb:active {
     left: 50%;
     transform: translateX(-50%);
     font-family: Martel Sans, sans-serif;
-    font-weight: 200;
+    font-weight: 400;
     color: var(--lightColor);
 }
 
@@ -339,7 +474,7 @@ body::-webkit-scrollbar-thumb:hover, body::-webkit-scrollbar-thumb:active {
     /* Body */
 
     body {
-        grid-template: repeat(2, minmax(700px, 100vh)) auto / minmax(320px, 100vw);
+        grid-template: minmax(700px, 100vh) auto auto / minmax(320px, 100vw);
         column-gap: 0;
         row-gap: 10px;
         overflow-x: hidden;
@@ -349,6 +484,15 @@ body::-webkit-scrollbar-thumb:hover, body::-webkit-scrollbar-thumb:active {
     body::-webkit-scrollbar {
         width: 12px;
     }
+    
+    h2 {
+        display: block; 
+        width: 100%;
+        font-size: 2.2rem;
+        text-align: center;
+        text-transform: uppercase;
+        margin-top: 125px;
+     }
 
     /* Barre de navigation */
 
@@ -369,7 +513,7 @@ body::-webkit-scrollbar-thumb:hover, body::-webkit-scrollbar-thumb:active {
         left: 0;
         width: 100vw;
         height: 100vh;
-        background: rgba(128, 128, 128, 0.555);
+        background: rgba(128, 128, 128, 0.70);
         pointer-events: none;
     }
 
@@ -379,6 +523,7 @@ body::-webkit-scrollbar-thumb:hover, body::-webkit-scrollbar-thumb:active {
         width: auto;
         border: none;
         font-size: 1.5rem;
+        font-weight: bold;
         background: none;
         pointer-events: all;
     }
@@ -464,37 +609,112 @@ body::-webkit-scrollbar-thumb:hover, body::-webkit-scrollbar-thumb:active {
         border-radius: 0;
     }
 
+    
+    /* Formation */
 
-     /* Projets */
+    #timeline {
+        max-height: none;
+    }
 
-     #projets.inactive {
-        pointer-events: none;
-     }
+    #formation h2 {
+        color: var(--darkColor);
+    }
 
-     #galerie {
-        grid-template: repeat(7, 220px) / 220px;
-        justify-content: center;
-        row-gap: 30px;
-        column-gap: 0;
-        width: 100%;
-        min-width: 0;
-        height: auto;
-        padding: 90px 0 80px 0;
-        border-radius: 3px;
+    #formation #timeline {
+        grid-template: repeat(5, auto) / 5px 220px;
+        padding: 90px 0 30px 0;
+        gap: 30px;
+        overflow-y: visible;
+        overflow-x: visible;
+    }
+    
+    #formation #formation5 {
+        grid-area: 1 / 2 / 2 / 3;
+    }
+
+    #formation #formation4 {
+        grid-area: 2 / 2 / 3 / 3;
+    }
+    
+    #formation #formation3 {
+        grid-area: 3 / 2 / 4 / 3;
+    }
+
+    #formation #formation2 {
+        grid-area: 4 / 2 / 5 / 3;
+    }
+    
+    #formation #formation1 {
+        grid-area: 5 / 2 / 6 / 3;
+    }
+    
+    #formation #timeline .formation p:first-of-type {
+        right: initial;
+        left: initial;
+        top: initial;
+        bottom: initial;
+        transform: none;
+    }
+    
+    #formation #timeline :is(#formation1, #formation2, #formation3, #formation4, #formation5) p:first-of-type {
+        left: -38px;
+    }
+    
+    #formation #timeline #formation5 p:first-of-type {
+        top: 50%;
+        transform: translateY(-50%) rotate(-90deg) ;
+    }
+    
+    #formation #timeline .formation:not(:last-child) p:first-of-type {
+        top: 45%;
+        transform: translateY(-40%) rotate(-90deg);
+    }
+
+    #formation #ligne {
+        grid-template: repeat(5, auto) / 100%;
+        grid-area: 1 / 1 / -1 / 2;
+    }
+    
+
+    /* Projets */
+
+    #projets.inactive {
+    pointer-events: none;
+    }
+
+    #projets h2 {
+        color: var(--lightColor);
+    }
+
+    #galerie {
+    grid-template: repeat(6, 220px) / 220px;
+    justify-content: center;
+    row-gap: 30px;
+    column-gap: 0;
+    width: 100%;
+    min-width: 0;
+    height: auto;
+    padding: 90px 0 95px 0;
+    border-radius: 3px;
     }
 
     #projet2 {
         grid-area: 4 / 1 / 5 / 2;
     }
 
+    #projet2 img {
+        width: 20%;
+    }
+
+    #projet6 {
+        grid-area: 6 / 1 / 7 / 2;
+    }
+
     .illustration img {
         width: 25%;
     }
 
-    #projet2 img {
-        width: 20%;
-    }
-    
+
     .projet.active .illustration {
         filter: blur(2.5px);
     }
@@ -511,7 +731,7 @@ body::-webkit-scrollbar-thumb:hover, body::-webkit-scrollbar-thumb:active {
         display: block;
         right: initial;
         left: 50%;
-        bottom: 1.2%;
+        bottom: 3%;
         transform: translateX(-50%);
     }
 }
@@ -531,4 +751,93 @@ body::-webkit-scrollbar-thumb:hover, body::-webkit-scrollbar-thumb:active {
     #projets .footer {
         display: none;
     }
+}
+
+
+@media all and (max-width: 1270px) {
+  
+    /* Formation */
+
+    #timeline {
+        grid-template: repeat(5, auto) / 220px 5px 220px;
+        gap: 0px 30px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        padding-top: 50px;
+        padding-bottom: 10px; /* ! */
+    }
+
+    #timeline::-webkit-scrollbar {
+        background-color: transparent;
+        width: 12px;
+    }
+     
+    #timeline::-webkit-scrollbar-track {
+        background-color: rgba(128, 128, 128, 0.555);
+    }
+     
+    #timeline::-webkit-scrollbar-thumb {
+        background-color: var(--darkColor);
+    }
+    
+    #timeline::-webkit-scrollbar-thumb:hover, #timeline::-webkit-scrollbar-thumb:active {
+        background-color: #222;
+    }
+
+    .formation {
+        min-height:  260px;
+    }
+        
+    #formation5 {
+        grid-area: 1 / 1 / 2 / 2;
+    }
+
+    #formation4 {
+        grid-area: 2 / 3 / 3 / 4;
+    }
+
+    #formation3 {
+        grid-area: 3 / 1 / 4 / 2;
+    }
+
+    #formation2 {
+        grid-area: 4 / 3 / 5 / 4;
+    }
+
+    #formation1 {
+        grid-area: 5 / 1 / 6 / 2;
+    }
+
+    #timeline .formation p:first-of-type {
+        left: initial;
+        top: initial;
+        bottom: initial;
+        transform: none;
+    }
+
+    #timeline :is(#formation1, #formation3, #formation5) p:first-of-type {
+        right: -60%;
+        bottom: 50%;
+        transform: translateY(50%);
+    }
+    
+    #timeline :is(#formation2, #formation4) p:first-of-type {
+        left: -60%;
+    }
+
+    #timeline #formation2 p:first-of-type {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    #timeline #formation4 p:first-of-type {
+        top: 48%;
+        transform: translateY(-48%);
+    }
+    
+    #ligne {
+        grid-template: repeat(5, auto) / 100%;
+        grid-area: 1 / 2 / -1 / 3;
+    }
+    
 }
