@@ -1,13 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Martel+Sans:wght@200;400&family=Montserrat:wght@100;200;300;400&display=swap');
+
+
 * {
   margin: 0;
   padding: 0;
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   min-width: 320px;
   min-height: 100vh;
   color: #222;
   transition: background-color 1s ease-in-out;
+  height: auto; /* ! */
+  font-family: Montserrat, sans-serif;
 }
 
 .linearGradient {
@@ -21,7 +30,7 @@ body {
 }
 
 #ville {
-  font-weight: 100;
+  margin-top: 10px;
   text-transform: capitalize;
 }
 
@@ -29,34 +38,52 @@ body {
   font-size: 0.8rem;
   cursor: pointer;
   width: 55%;
-  max-width: 300px;
   margin: 0 auto;
+  padding: 0.5rem;
+  text-transform: uppercase;
+  color: #f1f1f1;
   transition: background-color 1s ease-in-out;
 }
 
-.boxContent {
+.contentBox {
   display: flex;
-  flex-direction: column;
   justify-content: center;
+  align-items: center;
   flex-grow: 1;
   max-width: 100%;
 }
 
 .whiteBox {
-  width: 400px;
   max-width: 100%;
-  padding: 2rem !important;
+  background: #f1f1f1;
+  width: 400px;
+  padding: 2rem;
+  box-shadow: 0 1rem 3rem rgba(0,0,0,.175);
+  text-align: center;
 }
 
+h1 {
+  text-align: center;
+  margin-top: 1.5rem;
+}
 
-.img {
+span {
+  display: inline-block;
+}
+
+img {
   display: block;
   width: 30%;
   height: auto;
   margin: 0 auto;
 }
 
+#temperature_label {
+  margin-bottom: 35px;
+}
+
 footer {
-  font-weight: 400;
+  text-align: center;
+  padding: 1.5rem;
   font-size: 12px;
 }

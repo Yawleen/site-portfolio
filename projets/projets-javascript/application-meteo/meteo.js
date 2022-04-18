@@ -17,7 +17,7 @@ function Meteo(ville) {
         document.querySelector("#temperature_label").textContent = Math.round(
           response.main.temp
         ); // remplace l'élément sélectionné avec la température
-        document.querySelector(".img").src =
+        document.querySelector("img").src =
           "https://openweathermap.org/img/wn/" +
           response.weather[0].icon +
           "@2x.png"; // ajout de la source de l'image
@@ -74,7 +74,7 @@ function MeteoGeo(latitude, longitude) {
         document.querySelector("#temperature_label").textContent = Math.round(
           response.main.temp
         );
-        document.querySelector(".img").src =
+        document.querySelector("img").src =
           "https://openweathermap.org/img/wn/" +
           response.weather[0].icon +
           "@2x.png";
