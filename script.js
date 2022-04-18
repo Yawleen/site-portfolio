@@ -1,6 +1,7 @@
 const btnMenu = document.querySelector("#btnMenu");
 const listeNav = document.querySelector("#navBar ul");
 const listeEl = document.querySelectorAll("#navBar ul li");
+const bloc = document.querySelector(".bloc");
 const barreMedia = document.querySelector("#media");
 const signe = document.querySelector("#media span i");
 const sectionProjets = document.querySelector("#projets");
@@ -36,6 +37,24 @@ window.addEventListener("resize", () => {
     ) {
       signe.setAttribute("class", "fa-solid fa-minus");
     }
+  }
+});
+
+/* Rotation du bloc de la section "accueil" */
+
+setTimeout(() => {
+  bloc.classList.add("rotate");
+}, 5000);
+
+const elSansEvent = [];
+
+for (let i = 0; i < document.querySelector(".media").children.length; i++) {
+  elSansEvent.push(document.querySelector(".media").children[i]);
+}
+
+bloc.addEventListener("click", (e) => {
+  if (elSansEvent.every((el) => el !== e.target) === true) {
+    bloc.classList.toggle("rotate");
   }
 });
 
@@ -87,6 +106,10 @@ window.addEventListener("scroll", () => {
 });
 
 /* Scrollspy */
+
+window.addEventListener("load", () => {
+  listeEl[0].classList.add("frame");
+});
 
 window.addEventListener("scroll", () => {
   if (window.matchMedia("(min-width: 650px)").matches) {

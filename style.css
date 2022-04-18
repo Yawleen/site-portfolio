@@ -1,6 +1,7 @@
-/* Import */
+/* Polices */
 
 @import url('https://fonts.googleapis.com/css2?family=Martel+Sans:wght@200;400&family=Montserrat:wght@100;200;300;400&display=swap');
+
 
 /* Init */
 
@@ -36,7 +37,6 @@ a {
 body {
     display: grid;
     grid-template: minmax(730px, 100vh) / repeat(2, 100vw) auto;
-    column-gap: 10px;
     font-family: Montserrat, sans-serif;
     overflow-x: scroll;
     overflow-y: hidden;
@@ -125,6 +125,11 @@ h2 {
 }
 
 #navBar ul li a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
     color: var(--lightColor);
 }
 
@@ -192,18 +197,152 @@ h2 {
     background-image: repeating-linear-gradient(90deg, rgb(16, 16, 16) 0px, rgb(16, 16, 16) 35px,rgb(9, 9, 9) 35px, rgb(9, 9, 9) 70px,rgb(1, 1, 1) 70px, rgb(1, 1, 1) 105px,rgb(6, 6, 6) 105px, rgb(6, 6, 6) 140px,rgb(4, 4, 4) 140px, rgb(4, 4, 4) 175px,rgb(14, 14, 14) 175px, rgb(14, 14, 14) 210px,rgb(11, 11, 11) 210px, rgb(11, 11, 11) 245px,rgb(19, 19, 19) 245px, rgb(19, 19, 19) 280px);    
     background-size: cover;
     background-attachment: fixed;
+    perspective: 2000px;
 }
 
 .bloc {
+    position: relative;
     width: 100%;
-    height: 500px;
-    max-width: 800px;
-    margin-top: 90px;
-    border-radius: 3px;
-    background: var(--lightColor);
-    box-shadow: 0 0 20px rgba(128, 128, 128, 0.555);
+    height: 595px;
+    max-width: 700px;
+    margin-top: 75px;
+    margin-bottom: 30px;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    -moz-backface-visibility: hidden;
+    transition: transform 0.5s;
 }
 
+.bloc.rotate {
+    transform: rotateY(180deg);
+}
+
+#bienvenue {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    background: var(--lightColor);
+    background-image: url(img/paint.png);
+    background-repeat: no-repeat;
+    background-size: 450px;
+    background-position: center;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    z-index: 1;
+}
+
+#bienvenue h1 {
+    opacity: 0;
+    color: var(--lightColor);
+    letter-spacing: 10px;
+    font-size: 3.8rem;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 10px var(--darkColor);
+    animation: apparition 3s forwards;
+}
+
+#presentation {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 40px;
+    background: var(--lightColor);
+    border-radius: 5px;
+    transform: rotateY(180deg);
+    z-index: 0;
+}
+
+#dot-paint {
+    display: block;
+    width: 300px;
+    max-width: 100%;
+    height: 80px;
+    background-image: url(img/dot-paint.png);
+    background-size: 150px;
+    background-repeat: repeat-x;
+    background-position: center;
+    margin: 0 auto;
+    transform: rotate(180deg);
+    flex-shrink: 0;
+}
+
+.container {
+    display: flex;
+}
+
+#cadre-photo {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    flex-shrink: 0;
+}
+
+#cadre-photo::before {
+    position: absolute;
+    content: "";
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    border: 1px dashed var(--darkColor);
+}
+
+#cadre-photo img {
+    width: 161px;
+}
+
+#qui-suis-je {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+#qui-suis-je p {
+    position: relative;
+    text-align: justify;
+    font-size: 1.27rem;
+}
+
+#qui-suis-je p::before, #qui-suis-je p::after {
+    position: absolute;
+    font-size: 3.5rem;
+}
+
+#qui-suis-je p::before {    
+    content: "❝";
+    top: -15px;
+    left: -30px;
+}
+
+#qui-suis-je p::after {
+    content: "❞";
+    bottom: -25px;
+    right: -30px;
+}
+
+.media {
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
+    margin: 20px auto 0;
+}
+
+.media i {
+    color: var(--darkColor);
+    font-size: 2.7rem;
+    pointer-events: none;
+}
 
 
 /* Formation */
@@ -230,17 +369,14 @@ h2 {
 
 #formation1 {
     grid-area: 1 / 1 / 2 / 2;
-    border-top-right-radius: 15px;
 }
 
 #formation2 {
     grid-area: 3 / 2 / 4 / 3;
-    border-top-right-radius: 15px;
 }
 
 #formation3 {
     grid-area: 1 / 3 / 2 / 4;
-    border-top-right-radius: 15px;
 }
 
 #formation4 {
@@ -249,7 +385,6 @@ h2 {
 
 #formation5 {
     grid-area: 1 / 5 / 2 / 6;
-    border-top-right-radius: 19.5px;
 }
 
 .formation {
@@ -267,7 +402,7 @@ h2 {
 
 .formation p {
     text-align: justify;
-    font-size: 1.2rem;
+    font-size: 1.15rem;
 }
 
 #formation5 p:last-of-type {
@@ -296,28 +431,25 @@ h2 {
 
 .formation span {
     position: absolute;
-    font-size: 3.3rem;
-    color: #333;
-    top: -25px;
+    font-size: 2.8rem;
+    color: var(--darkColor);
+    top: -20px;
 } 
 
 :is(#formation1, #formation2, #formation3) span {
-    right: -18px;
-}
-
-#formation5 span {
-    top: -20px;
-    right: -10px;
-}
-
-:is(#formation1, #formation2, #formation3) span {
     transform: rotate(32deg);
+    right: -15px;
 }
 
 #formation4 span {
     top: initial;
     bottom: 10px;
     right: 10px;
+}
+
+#formation5 span {
+    top: -15px;
+    right: -10px;
 }
 
 #ligne {
@@ -335,12 +467,13 @@ h2 {
     height: 20px;
     border-radius: 50%;
     border: 3px solid #f1f1f1;
-    background: var(--darkColor);
+    background: #333;
 }
 
 #formation .footer {
     color: var(--darkColor);
 }
+
 
 /* Projets */
 
@@ -445,7 +578,6 @@ h2 {
 }
 
 
-
 /* Footer */
 
 .footer {
@@ -469,14 +601,35 @@ h2 {
 
 /* Media queries */
 
+@media all and (max-width: 320px) {
+    
+    /* Accueil */
+    
+    #accueil #bienvenue {
+        background-size: 340px;
+    }
+
+    #accueil #bienvenue h1 {
+        font-size: 2.8rem;
+    }
+}
+
+@media all and (max-width: 520px) {
+    
+    /* Accueil */
+
+    #accueil .bloc {
+        height: calc(100vh + 200px);
+    }
+
+}
+
 @media all and (max-width: 650px) {
     
     /* Body */
 
     body {
-        grid-template: minmax(700px, 100vh) auto auto / minmax(320px, 100vw);
-        column-gap: 0;
-        row-gap: 10px;
+        grid-template: repeat(3, auto) / minmax(320px, 100vw);
         overflow-x: hidden;
         overflow-y: scroll;
     }
@@ -487,12 +640,14 @@ h2 {
     
     h2 {
         display: block; 
+        position: relative;
         width: 100%;
         font-size: 2.2rem;
         text-align: center;
         text-transform: uppercase;
         margin-top: 125px;
      }
+     
 
     /* Barre de navigation */
 
@@ -513,7 +668,7 @@ h2 {
         left: 0;
         width: 100vw;
         height: 100vh;
-        background: rgba(128, 128, 128, 0.70);
+        background: rgba(128, 128, 128, 0.90);
         pointer-events: none;
     }
 
@@ -523,7 +678,6 @@ h2 {
         width: auto;
         border: none;
         font-size: 1.5rem;
-        font-weight: bold;
         background: none;
         pointer-events: all;
     }
@@ -581,6 +735,7 @@ h2 {
         transform: rotate(45deg);
     }
 
+
     /* Barre media */
 
     #media:hover {
@@ -602,13 +757,70 @@ h2 {
 
     /* Accueil */
 
-    .bloc {
-        width: 100%;
-        max-width: none;
-        margin-top: 0px;
-        border-radius: 0;
+    #accueil {
+        perspective: 3000px;
     }
 
+    .bloc {
+        width: 100%;
+        height: 100vh;
+        max-width: none;
+        flex-shrink: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    #presentation, #bienvenue {
+        border-radius: 0;
+    }
+    
+    #bienvenue {
+        align-items: flex-start;
+        background-size: 370px;
+        background-position: 50% 285px;
+    }
+
+    #bienvenue h1 {
+        font-size: 3.2rem;
+        margin-top: 315px;
+    }
+
+    #presentation {
+        padding: 100px 30px 50px 30px;
+    }
+
+    #dot-paint {
+        background-position: right;
+        margin-bottom: 45px;
+    }
+
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #cadre-photo {
+        margin-bottom: 20px;
+    }
+
+    #cadre-photo img {
+        width: 141px;
+    }
+
+    #cadre-photo::before {
+        width: 150px;
+        height: 150px;
+    }
+
+    #qui-suis-je {
+        padding: 10px;
+        margin-top: 45px;
+    }
+
+    .media {
+        margin-top: 45px;
+    }
+    
     
     /* Formation */
 
@@ -618,6 +830,8 @@ h2 {
 
     #formation h2 {
         color: var(--darkColor);
+        position: relative;
+        z-index: 0;
     }
 
     #formation #timeline {
@@ -679,7 +893,7 @@ h2 {
     /* Projets */
 
     #projets.inactive {
-    pointer-events: none;
+        pointer-events: none;
     }
 
     #projets h2 {
@@ -687,15 +901,15 @@ h2 {
     }
 
     #galerie {
-    grid-template: repeat(6, 220px) / 220px;
-    justify-content: center;
-    row-gap: 30px;
-    column-gap: 0;
-    width: 100%;
-    min-width: 0;
-    height: auto;
-    padding: 90px 0 95px 0;
-    border-radius: 3px;
+        grid-template: repeat(6, 220px) / 220px;
+        justify-content: center;
+        row-gap: 30px;
+        column-gap: 0;
+        width: 100%;
+        min-width: 0;
+        height: auto;
+        padding: 90px 0 95px 0;
+        border-radius: 3px;
     }
 
     #projet2 {
@@ -725,7 +939,9 @@ h2 {
 
 
     /* Footer */
-
+    #accueil .footer {
+        display: none;
+    }
 
     #projets #galerie + .footer {
         display: block;
@@ -735,14 +951,6 @@ h2 {
         transform: translateX(-50%);
     }
 }
-
-
-@media all and (max-width: 960px) {
-    #logo {
-        display: none;
-    }
-}
-
 
 @media all and (max-width: 1150px) {
   
@@ -840,4 +1048,12 @@ h2 {
         grid-area: 1 / 2 / -1 / 3;
     }
     
+}
+
+/* Animations */
+
+@keyframes apparition {
+    100% {
+        opacity: 1;
+    }
 }
