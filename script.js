@@ -75,13 +75,19 @@ projets.forEach((projet) => {
       projet.classList.toggle("active");
       if (projet.getAttribute("class") === "projet active") {
         let indexLien = projets.indexOf(e.target.parentElement);
+        let lien = document.createElement('a');
         setTimeout(() => {
-          window.open(liens[indexLien], "_blank");
+          lien.href = liens[indexLien];
+          lien.target="_blank";
+          lien.click();
         }, 5000);
       }
     } else {
       let indexLien = projets.indexOf(e.target.parentElement);
-      window.open(liens[indexLien], "_blank");
+      let lien = document.createElement('a');
+      lien.href = liens[indexLien];
+      lien.target="_blank";
+      lien.click();
     }
   });
 });
