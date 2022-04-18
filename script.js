@@ -75,9 +75,9 @@ projets.forEach((projet) => {
       projet.classList.toggle("active");
       if (projet.getAttribute("class") === "projet active") {
         let indexLien = projets.indexOf(e.target.parentElement);
-        setTimeout(() => {
-          window.open(liens[indexLien], "_blank");
-        }, 5000);
+        const awaitTimeout = (delay) =>
+          new Promise((resolve) => setTimeout(resolve, delay));
+        awaitTimeout(5000).then(() => window.open(liens[indexLien], "_blank"));
       }
     } else {
       let indexLien = projets.indexOf(e.target.parentElement);
