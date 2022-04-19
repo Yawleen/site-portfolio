@@ -767,7 +767,7 @@ h2 {
 
     .bloc {
         width: 100%;
-        height: 100vh;
+        height: calc(100vh + 200px);
         max-width: none;
         flex-shrink: 0;
         margin-top: 0;
