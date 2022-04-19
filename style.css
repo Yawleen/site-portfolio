@@ -157,7 +157,7 @@ h2 {
     transition: width 0.5s ease-in-out;
 }
 
-#media :is(span, a) {
+#media span, #media a {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -424,11 +424,11 @@ h2 {
     font-weight: 300;
 }
 
-:is(#formation1, #formation3, #formation5) p:first-of-type {
+#formation1 p:first-of-type, #formation3 p:first-of-type, #formation5 p:first-of-type {
     bottom: -10px;
 }
 
-:is(#formation2, #formation4) p:first-of-type {
+#formation2 p:first-of-type, #formation4 p:first-of-type {
     top: -15px;
 }
 
@@ -439,7 +439,7 @@ h2 {
     top: -20px;
 } 
 
-:is(#formation1, #formation2, #formation3) span {
+#formation1 span, #formation2 span, #formation3 span {
     transform: rotate(32deg);
     right: -15px;
 }
@@ -529,6 +529,7 @@ h2 {
 
 .illustration img {
     width: 30%;
+    pointer-events: none;
 }
 
 .description {
@@ -873,7 +874,7 @@ h2 {
         transform: none;
     }
     
-    #formation #timeline :is(#formation1, #formation2, #formation3, #formation4, #formation5) p:first-of-type {
+    #formation #timeline #formation1 p:first-of-type, #formation #timeline #formation2 p:first-of-type, #formation #timeline #formation3 p:first-of-type, #formation #timeline #formation4 p:first-of-type, #formation #timeline #formation5 p:first-of-type {
         left: -38px;
     }
     
@@ -1026,13 +1027,13 @@ h2 {
         transform: none;
     }
 
-    #timeline :is(#formation1, #formation3, #formation5) p:first-of-type {
+    #timeline #formation1 p:first-of-type, #timeline #formation3 p:first-of-type, #timeline #formation5 p:first-of-type {
         right: -60%;
         bottom: 50%;
         transform: translateY(50%);
     }
     
-    #timeline :is(#formation2, #formation4) p:first-of-type {
+    #timeline #formation2 p:first-of-type, #timeline #formation4 p:first-of-type {
         left: -60%;
     }
 

@@ -74,22 +74,40 @@ projets.forEach((projet) => {
     if (window.matchMedia("(max-width: 650px)").matches) {
       projet.classList.toggle("active");
       if (projet.getAttribute("class") === "projet active") {
-        let indexLien = projets.indexOf(e.target.parentElement);
-        let lien = document.createElement('a');
-        const timeout = delay =>
-        new Promise(resolve => setTimeout(resolve, delay));
-        timeout(5000).then(() => {      
-        lien.href = liens[indexLien];
-        lien.target="_blank";
-        lien.click();
-      });
+        if (e.target.parentElement.getAttribute("class") == "projet active") {
+          let indexLien = projets.indexOf(e.target.parentElement);
+          setTimeout(() => {
+            let reponse = confirm(
+              `Souhaitez-vous être redirigé(e) vers le projet "${
+                e.target.querySelector("h5").textContent
+              }" ?`
+            );
+            if (reponse === true) {
+              window.location.href = liens[indexLien];
+            }
+          }, 5000);
+        } else if (e.target.getAttribute("class") == "projet active") {
+          let indexLien = projets.indexOf(e.target);
+          setTimeout(() => {
+            let reponse = confirm(
+              `Souhaitez-vous être redirigé(e) vers le projet "${
+                e.target.querySelector(".description h5").textContent
+              }" ?`
+            );
+            if (reponse === true) {
+              window.location.href = liens[indexLien];
+            }
+          }, 5000);
+        }
       }
     } else {
-      let indexLien = projets.indexOf(e.target.parentElement);
-      let lien = document.createElement('a');
-      lien.href = liens[indexLien];
-      lien.target="_blank";
-      lien.click();
+      if (e.target.parentElement.getAttribute("class") == "projet") {
+        let indexLien = projets.indexOf(e.target.parentElement);
+        window.location.href = liens[indexLien];
+      } else if (e.target.getAttribute("class") == "projet") {
+        let indexLien = projets.indexOf(e.target);
+        window.location.href = liens[indexLien];
+      }
     }
   });
 });
