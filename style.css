@@ -174,14 +174,6 @@ h2 {
     flex-shrink: 0;
 }
 
-#media span i {
-    font-size: 1.5rem;
-}
-
-#media a i {
-    font-size: 2.2rem;
-}
-
 #media:hover {
     width: 120px;
 }
