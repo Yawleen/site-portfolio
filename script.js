@@ -3,8 +3,9 @@ const listeNav = document.querySelector("#navBar ul");
 const listeEl = document.querySelectorAll("#navBar ul li");
 const bloc = document.querySelector(".bloc");
 const barreMedia = document.querySelector("#media");
-const signe = document.querySelector("#media span i");
+const svgSigne = document.querySelector("#media span svg");
 const sectionProjets = document.querySelector("#projets");
+const aHref = Array.from(document.querySelectorAll("#galerie a"));
 const projets = Array.from(document.querySelectorAll(".projet"));
 
 /* Apparition/disparition du menu sur écran de -650px de large */
@@ -21,21 +22,29 @@ btnMenu.addEventListener("click", () => {
 barreMedia.addEventListener("click", () => {
   if (window.matchMedia("(max-width: 650px)").matches) {
     barreMedia.classList.toggle("active");
-    signe.getAttribute("class") === "fa-solid fa-plus"
-      ? signe.setAttribute("class", "fa-solid fa-minus")
-      : signe.setAttribute("class", "fa-solid fa-plus");
+    svgSigne.getAttribute("class") === "plus"
+      ? ((svgSigne.innerHTML =
+          '<path d="M400 288h-352c-17.69 0-32-14.32-32-32.01s14.31-31.99 32-31.99h352c17.69 0 32 14.3 32 31.99S417.7 288 400 288z"/>'),
+        svgSigne.setAttribute("class", "minus"))
+      : ((svgSigne.innerHTML =
+          '<path d="M432 256c0 17.69-14.33 32.01-32 32.01H256v144c0 17.69-14.33 31.99-32 31.99s-32-14.3-32-31.99v-144H48c-17.67 0-32-14.32-32-32.01s14.33-31.99 32-31.99H192v-144c0-17.69 14.33-32.01 32-32.01s32 14.32 32 32.01v144h144C417.7 224 432 238.3 432 256z"/>'),
+        svgSigne.setAttribute("class", "plus"));
   }
 });
 
 window.addEventListener("resize", () => {
   if (window.matchMedia("(min-width: 650px)").matches) {
-    signe.setAttribute("class", "fa-solid fa-plus");
+    (svgSigne.innerHTML =
+      '<path d="M432 256c0 17.69-14.33 32.01-32 32.01H256v144c0 17.69-14.33 31.99-32 31.99s-32-14.3-32-31.99v-144H48c-17.67 0-32-14.32-32-32.01s14.33-31.99 32-31.99H192v-144c0-17.69 14.33-32.01 32-32.01s32 14.32 32 32.01v144h144C417.7 224 432 238.3 432 256z"/>'),
+      svgSigne.setAttribute("class", "plus");
   } else {
     if (
       barreMedia.getAttribute("class") === "active" ||
       barreMedia.getAttribute("class") === "active inactive"
     ) {
-      signe.setAttribute("class", "fa-solid fa-minus");
+      (svgSigne.innerHTML =
+        '<path d="M400 288h-352c-17.69 0-32-14.32-32-32.01s14.31-31.99 32-31.99h352c17.69 0 32 14.3 32 31.99S417.7 288 400 288z"/>'),
+        svgSigne.setAttribute("class", "minus");
     }
   }
 });
@@ -69,6 +78,27 @@ const liens = [
   "./projets/projets-javascript/recherche-github/recherche-github.html",
 ];
 
+if (window.matchMedia("(max-width: 650px)").matches) {
+  aHref.forEach((a, i) => {
+    a.href = `#${projets[i].getAttribute("id")}`;
+    a.target = "_self";
+  });
+}
+
+window.addEventListener("resize", () => {
+  if (window.matchMedia("(max-width: 650px)").matches) {
+    aHref.forEach((a, i) => {
+      a.href = `#${projets[i].getAttribute("id")}`;
+      a.target = "_self";
+    });
+  } else {
+    aHref.forEach((a, i) => {
+      a.href = liens[i];
+      a.target = "_blank";
+    });
+  }
+});
+
 projets.forEach((projet) => {
   projet.addEventListener("click", (e) => {
     if (window.matchMedia("(max-width: 650px)").matches) {
@@ -99,14 +129,6 @@ projets.forEach((projet) => {
             }
           }, 5000);
         }
-      }
-    } else {
-      if (e.target.parentElement.getAttribute("class") == "projet") {
-        let indexLien = projets.indexOf(e.target.parentElement);
-        window.location.href = liens[indexLien];
-      } else if (e.target.getAttribute("class") == "projet") {
-        let indexLien = projets.indexOf(e.target);
-        window.location.href = liens[indexLien];
       }
     }
   });
