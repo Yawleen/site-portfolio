@@ -200,9 +200,9 @@ h2 {
 .bloc {
     position: relative;
     width: 100%;
-    height: 615px;
+    height: 610px;
     max-width: 700px;
-    margin-top: 72.5px;
+    margin-top: 69px;
     margin-bottom: 30px;
     transform-style: preserve-3d;
     cursor: pointer;
@@ -596,7 +596,7 @@ h2 {
 .footer {
     position: absolute;
     width: max-content;
-    bottom: 3%;
+    bottom: 2%;
     left: 50%;
     transform: translateX(-50%);
     font-family: Martel Sans, sans-serif;
@@ -959,7 +959,7 @@ h2 {
         display: block;
         right: initial;
         left: 50%;
-        bottom: 3%;
+        bottom: 2%;
         transform: translateX(-50%);
     }
 }
