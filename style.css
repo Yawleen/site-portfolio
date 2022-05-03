@@ -471,7 +471,7 @@ h2 {
 }
 
 .point:last-child {
-    animation: clignotement 1s infinite linear;
+    animation: clignotement 1s infinite alternate;
 }
 
 #formation .footer {
@@ -1062,7 +1062,7 @@ h2 {
     }
 
     .point:first-child {
-        animation: clignotement 1s infinite linear;
+        animation: clignotement 1s infinite alternate;
     }
 
     .point:last-child {

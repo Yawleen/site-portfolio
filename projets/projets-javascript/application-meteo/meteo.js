@@ -13,14 +13,22 @@ function Meteo(ville) {
     if (requete.readyState === XMLHttpRequest.DONE) {
       if (requete.status === 200) {
         let response = requete.response; // récupération du résultat de la requête
-        document.querySelector("#ville").textContent = response.name; // remplace le contenu de l'élément sélectionné avec le nom de la ville
-        document.querySelector("#temperature_label").textContent = Math.round(
-          response.main.temp
-        ); // remplace l'élément sélectionné avec la température
-        document.querySelector("img").src =
-          "https://openweathermap.org/img/wn/" +
-          response.weather[0].icon +
-          "@2x.png"; // ajout de la source de l'image
+
+        const boxMeteo = `        <div class="whiteBox">
+        <h1>Météo</h1>
+        <span id="ville">${response.name}</span>
+        <img src="https://openweathermap.org/img/wn/${
+          response.weather[0].icon
+        }@2x.png" alt="icon">
+        <span id="temperature_label">${Math.round(response.main.temp)}
+        </span> °C
+        <div id="changer">
+            Changer de ville
+        </div>
+    </div>`;
+
+        document.querySelector(".contentBox").innerHTML = boxMeteo;
+
         let iconColors = {
           "01d": "#EC6E4C",
           "01n": "#48484a",
@@ -46,6 +54,14 @@ function Meteo(ville) {
 
         document.body.style.backgroundColor =
           iconColors[response.weather[0].icon]; // changement de la couleur de fond du body
+
+        document.querySelector("#changer").addEventListener("click", () => {
+          // au clic du bouton, proposer de saisir une ville
+          let villeChoisie = prompt(
+            "Pour quelle ville souhaitez-vous afficher la météo ?"
+          );
+          Meteo(villeChoisie); // affichage de la météo pour la ville choisie
+        });
       } else {
         alert("Un problème est survenu, merci de revenir plus tard.");
       }
@@ -70,14 +86,21 @@ function MeteoGeo(latitude, longitude) {
     if (requete.readyState === XMLHttpRequest.DONE) {
       if (requete.status === 200) {
         let response = requete.response;
-        document.querySelector("#ville").textContent = response.name;
-        document.querySelector("#temperature_label").textContent = Math.round(
-          response.main.temp
-        );
-        document.querySelector("img").src =
-          "https://openweathermap.org/img/wn/" +
-          response.weather[0].icon +
-          "@2x.png";
+
+        const boxMeteo = `        <div class="whiteBox">
+        <h1>Météo</h1>
+        <span id="ville">${response.name}</span>
+        <img src="https://openweathermap.org/img/wn/${
+          response.weather[0].icon
+        }@2x.png" alt="icon">
+        <span id="temperature_label">${Math.round(response.main.temp)}
+        </span> °C
+        <div id="changer">
+            Changer de ville
+        </div>
+    </div>`;
+
+        document.querySelector(".contentBox").innerHTML = boxMeteo;
         let iconColors = {
           "01d": "#EC6E4C",
           "01n": "#48484a",
@@ -103,6 +126,14 @@ function MeteoGeo(latitude, longitude) {
 
         document.body.style.backgroundColor =
           iconColors[response.weather[0].icon];
+
+        document.querySelector("#changer").addEventListener("click", () => {
+          // au clic du bouton, proposer de saisir une ville
+          let villeChoisie = prompt(
+            "Pour quelle ville souhaitez-vous afficher la météo ?"
+          );
+          Meteo(villeChoisie); // affichage de la météo pour la ville choisie
+        });
       } else {
         alert("Un problème est survenu, merci de revenir plus tard.");
       }
@@ -131,12 +162,3 @@ if ("geolocation" in navigator) {
 var options = {
   enableHighAccuracy: true, // géolocalisation avec précision
 };
-
-let btn = document.querySelector("#changer");
-btn.addEventListener("click", () => {
-  // au clic du bouton, proposer de saisir une ville
-  let villeChoisie = prompt(
-    "Pour quelle ville souhaitez-vous afficher la météo ?"
-  );
-  Meteo(villeChoisie); // affichage de la météo pour la ville choisie
-});

@@ -80,16 +80,16 @@ const liens = [
 
 if (window.matchMedia("(max-width: 650px)").matches) {
   aHref.forEach((a, i) => {
-    a.href = `#${projets[i].getAttribute("id")}`;
-    a.target = "_self";
+    a.removeAttribute("href");
+    a.removeAttribute("target");
   });
 }
 
 window.addEventListener("resize", () => {
   if (window.matchMedia("(max-width: 650px)").matches) {
     aHref.forEach((a, i) => {
-      a.href = `#${projets[i].getAttribute("id")}`;
-      a.target = "_self";
+      a.removeAttribute("href");
+      a.removeAttribute("target");
     });
   } else {
     aHref.forEach((a, i) => {
@@ -127,7 +127,7 @@ projets.forEach((projet) => {
             if (reponse === true) {
               window.location.href = liens[indexLien];
             }
-          }, 5000);
+          }, 3500);
         }
       }
     }
