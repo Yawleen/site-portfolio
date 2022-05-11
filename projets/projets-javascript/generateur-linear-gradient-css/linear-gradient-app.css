@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Martel+Sans:wght@200&family=Open+Sans:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 
 html {
     font-size: 62.5%;
@@ -164,11 +164,11 @@ h2 {
 
 .inp-group input {
     flex-grow: 1;
-    font-size: 1.7rem;
+    font-size: 1.6rem;
     color: #222;
     text-align: center;
     border: 1px solid grey;
-    /* box-shadow: 1px 1px 1px #333 inset; */
+    text-transform: uppercase;
 }
 
 .moins {
