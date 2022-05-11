@@ -586,10 +586,6 @@ h2 {
     width: 10%;
 }
 
-#galerie a:nth-child(6) {
-    grid-area: 3 / 2 / -1 / -1;
-}
-
 
 /* Footer */
 
@@ -913,7 +909,7 @@ h2 {
     }
 
     #galerie {
-        grid-template: repeat(6, 220px) / 220px;
+        grid-template: repeat(7, 220px) / 220px;
         justify-content: center;
         row-gap: 30px;
         column-gap: 0;
@@ -932,9 +928,6 @@ h2 {
         width: 20%;
     }
 
-    #galerie a:nth-child(6) {
-        grid-area: 6 / 1 / 7 / 2;
-    }
 
     .illustration img {
         width: 25%;

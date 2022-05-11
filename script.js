@@ -76,10 +76,11 @@ const liens = [
   "./projets/projets-javascript/application-meteo/application-meteo.html",
   "./projets/projets-javascript/to-do-list/to-do-list.html",
   "./projets/projets-javascript/recherche-github/recherche-github.html",
+  "./projets/projets-javascript/generateur-linear-gradient-css/linear-gradient-app.html"
 ];
 
 if (window.matchMedia("(max-width: 650px)").matches) {
-  aHref.forEach((a, i) => {
+  aHref.forEach((a) => {
     a.removeAttribute("href");
     a.removeAttribute("target");
   });
@@ -87,7 +88,7 @@ if (window.matchMedia("(max-width: 650px)").matches) {
 
 window.addEventListener("resize", () => {
   if (window.matchMedia("(max-width: 650px)").matches) {
-    aHref.forEach((a, i) => {
+    aHref.forEach((a) => {
       a.removeAttribute("href");
       a.removeAttribute("target");
     });
@@ -115,7 +116,7 @@ projets.forEach((projet) => {
             if (reponse === true) {
               window.location.href = liens[indexLien];
             }
-          }, 5000);
+          }, 3500);
         } else if (e.target.getAttribute("class") == "projet active") {
           let indexLien = projets.indexOf(e.target);
           setTimeout(() => {
