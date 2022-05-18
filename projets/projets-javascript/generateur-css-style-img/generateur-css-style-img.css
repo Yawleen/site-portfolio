@@ -1,0 +1,276 @@
+@import url('https://fonts.googleapis.com/css2?family=Martel+Sans:wght@200&family=Open+Sans:wght@300&display=swap');
+
+
+html {
+    font-size: 62.5%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(0deg, #3c1d6c,#40887f);    
+    font-family: Open Sans, sans-serif;
+    min-width: 320px;
+}
+
+.app {
+    display: grid;
+    grid-template: auto / 300px 1fr 350px;
+    align-content: center;
+    column-gap: 15px;
+    width: 100%;
+    max-width: 1530px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.options > p {
+    text-align: center;
+    font-size: 1rem;
+    margin-top: 40px;
+    color: #2222228a;
+    font-weight: bold;
+}
+
+
+.app > * {    
+    padding: 35px;
+}    
+
+
+.options, .frame {
+    background-color: #f1f1f1;
+}
+
+
+/* Inputs & boutons */
+
+label {
+    display: inline-block;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+button {    
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+}
+
+input[type="range"], input[type="text"] {
+    display: block;
+    width: 230px;
+}
+
+input[type="text"] {
+    padding: 8px;
+}
+
+
+/* Box options */ 
+
+.options {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 3px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+#filtres input:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+#filtres, #arrondissement-bordure, #cadrage, #rotation {
+    margin-bottom: 20px;
+}
+
+#cadrage {
+    text-align: center;
+}
+
+#rotation, .btn-action {
+    text-align: center;
+}
+
+#rotation p {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+
+/* Box frame */
+
+
+.frame {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    box-shadow: 0px 0px 10px rgba(56, 56, 56, 0.2);
+}
+
+.frame button {
+    border: 1px solid #222;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.container-img {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    background-color: #f1f1f1;  
+    overflow: hidden;
+    border: 1px solid #aaa;
+}
+
+.area {
+    width: 100%;
+    height: 100%;
+    background-image: url("img/arrow-up-from-bracket-solid.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 50px 50px;
+    opacity: 0.55;
+}
+
+.area:hover,
+.area.dragging,
+.area.uploading {
+    opacity: 1;
+}
+
+.area input {
+    display: block;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.area input:focus {
+    outline: none;
+}
+
+
+
+/* Box CSS */
+
+.container-code-css {
+    padding-top: 50px;
+    background-color: #222;
+    border-radius: 3px;
+}
+
+h2 {
+    color: #707070;
+    text-align: center;
+    font-size: 1.8rem;
+}
+
+.div-code {
+    padding-top: 40px;
+    width: 100%;
+    color: #f1f1f1;
+    font-size: 1.22rem;
+    position: relative;
+}
+
+.paste {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+}
+
+.comment {
+    display: block;
+    color: #707070;
+    margin-bottom: 10px;
+}
+
+.prop {
+    color: #5ce0ff;
+}
+
+.val {
+    word-break: break-word;
+}
+
+.func {
+    color: #fff395;
+}
+
+.keyword {
+    color: rgb(255 116 116);
+}
+
+.taille {
+    color: #bdffbe;
+}
+
+svg {
+    pointer-events: none;
+}
+
+
+/* Media queries */
+
+@media all and (max-width: 400px) { 
+    .app input[type="range"], .app input[type="text"] {
+        width: 230px;
+    }
+}
+
+@media all and (max-width: 1250px) {
+    .app {
+        grid-template: repeat(3, auto) / 100%;
+        column-gap: 0;
+        row-gap: 15px;
+    }
+
+    input[type="range"], input[type="text"] {
+        width: 400px;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .container-img {
+        width: 100%;
+        height: 100%;
+    }
+
+    #filtres, #arrondissement-bordure {
+        text-align: center;
+    }
+
+    .container-code-css, .frame {
+        min-height: 400px;
+    }
+
+    .area {
+        background-size: 35px 35px;
+    }
+
+}

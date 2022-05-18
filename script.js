@@ -76,7 +76,8 @@ const liens = [
   "./projets/projets-javascript/application-meteo/application-meteo.html",
   "./projets/projets-javascript/to-do-list/to-do-list.html",
   "./projets/projets-javascript/recherche-github/recherche-github.html",
-  "./projets/projets-javascript/generateur-linear-gradient-css/linear-gradient-app.html"
+  "./projets/projets-javascript/generateur-css-linear-gradient/linear-gradient-app.html",
+  "./projets/projets-javascript/generateur-css-style-img/generateur-css-style-img.html",
 ];
 
 if (window.matchMedia("(max-width: 650px)").matches) {
@@ -137,22 +138,22 @@ projets.forEach((projet) => {
 
 /* Disparition de la barre de navigation sur écran de +650px lorsqu'on arrive à la section "projets" */
 
-window.addEventListener("scroll", () => {
-  if (window.matchMedia("(min-width: 650px)").matches) {
-    if (
-      window.pageXOffset >=
-      document.body.scrollWidth - document.body.clientWidth * 2 + 450
-    ) {
-      listeNav.classList.add("hidden");
-    } else {
-      listeNav.classList.remove("hidden");
-    }
-  } else {
-    if (listeNav.getAttribute("class") === "hidden") {
-      listeNav.classList.remove("hidden");
-    }
-  }
-});
+// window.addEventListener("scroll", () => {
+//   if (window.matchMedia("(min-width: 650px)").matches) {
+//     if (
+//       window.pageXOffset >=
+//       document.body.scrollWidth - document.body.clientWidth * 2 + 450
+//     ) {
+//       listeNav.classList.add("hidden");
+//     } else {
+//       listeNav.classList.remove("hidden");
+//     }
+//   } else {
+//     if (listeNav.getAttribute("class") === "hidden") {
+//       listeNav.classList.remove("hidden");
+//     }
+//   }
+// });
 
 /* Scrollspy */
 
@@ -163,20 +164,32 @@ window.addEventListener("load", () => {
 window.addEventListener("scroll", () => {
   if (window.matchMedia("(min-width: 650px)").matches) {
     if (window.pageXOffset * 2 <= document.body.clientWidth) {
-      listeEl[1].getAttribute("class") === "frame"
-        ? (listeEl[1].classList.remove("frame"),
-          listeEl[0].classList.add("frame"))
-        : listeEl[0].classList.add("frame");
+      listeEl.forEach((el) => {
+        if (el === listeEl[0]) {
+          el.classList.add("frame");
+        } else {
+          el.classList.remove("frame");
+        }
+      });
     } else if (
       window.pageXOffset * 2 > document.body.clientWidth &&
       window.pageXOffset * 2 < document.body.clientWidth * 2 + 1000
     ) {
-      listeEl[0].getAttribute("class") === "frame"
-        ? (listeEl[0].classList.remove("frame"),
-          listeEl[1].classList.add("frame"))
-        : listeEl[1].classList.add("frame");
+      listeEl.forEach((el) => {
+        if (el === listeEl[1]) {
+          el.classList.add("frame");
+        } else {
+          el.classList.remove("frame");
+        }
+      });
     } else {
-      listeEl[1].classList.remove("frame");
+      listeEl.forEach((el) => {
+        if (el === listeEl[2]) {
+          el.classList.add("frame");
+        } else {
+          el.classList.remove("frame");
+        }
+      });
     }
   }
 });

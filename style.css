@@ -100,10 +100,10 @@ h2 {
     transition: transform 0.4s, opacity 0.4s;
 }
 
-#navBar ul.hidden {
+/* #navBar ul.hidden {
     transform: translateY(-60px);
     opacity: 0;
-}
+} */
 
 #navBar ul li {
     display: flex;
@@ -474,19 +474,17 @@ h2 {
     animation: clignotement 1s infinite alternate;
 }
 
-#formation .footer {
+/* #formation .footer {
     color: var(--darkColor);
-}
+} */
 
 
 /* Projets */
 
 #projets {
     display: flex;
-    /* ! */
     flex-direction: column;
     justify-content: center;
-    /* ! */
     position: relative;
     background-image: repeating-linear-gradient(90deg, rgb(16, 16, 16) 0px, rgb(16, 16, 16) 35px, rgb(9, 9, 9) 35px, rgb(9, 9, 9) 70px, rgb(1, 1, 1) 70px, rgb(1, 1, 1) 105px, rgb(6, 6, 6) 105px, rgb(6, 6, 6) 140px, rgb(4, 4, 4) 140px, rgb(4, 4, 4) 175px, rgb(14, 14, 14) 175px, rgb(14, 14, 14) 210px, rgb(11, 11, 11) 210px, rgb(11, 11, 11) 245px, rgb(19, 19, 19) 245px, rgb(19, 19, 19) 280px);
     background-size: cover;
@@ -495,11 +493,11 @@ h2 {
 
 #galerie {
     display: grid;
-    grid-template: repeat(3, 220px) / repeat(3, 220px);
+    grid-template: repeat(2, 220px) / repeat(4, 220px);
     justify-content: center;
     align-content: center;
-    row-gap: 10px;
-    column-gap: 10px;
+    row-gap: 15px;
+    column-gap: 15px;
     min-width: 100vw;
     height: calc(100% - 12px);
     padding: 0 50px;
@@ -578,12 +576,8 @@ h2 {
     pointer-events: none;
 }
 
-#galerie a:nth-child(2) {
-    grid-area: 2 / 1 / 3 / -1;
-}
-
 #projet2 img {
-    width: 10%;
+    width: 25%;
 }
 
 
@@ -593,16 +587,16 @@ h2 {
     position: absolute;
     width: max-content;
     bottom: 2%;
-    left: 50%;
-    transform: translateX(-50%);
+    /* left: 50%;
+    transform: translateX(-50%); */
     font-family: Martel Sans, sans-serif;
     color: var(--lightColor);
 }
 
 #projets .footer {
     right: 2%;
-    left: initial;
-    transform: none;
+    /* left: initial; */
+    /* transform: none; */
 }
 
 
@@ -909,7 +903,7 @@ h2 {
     }
 
     #galerie {
-        grid-template: repeat(7, 220px) / 220px;
+        grid-template: repeat(8, 220px) / 220px;
         justify-content: center;
         row-gap: 30px;
         column-gap: 0;
@@ -919,15 +913,6 @@ h2 {
         padding: 90px 0 95px 0;
         border-radius: 3px;
     }
-
-    #galerie a:nth-child(2) {
-        grid-area: 4 / 1 / 5 / 2;
-    }
-
-    #projet2 img {
-        width: 20%;
-    }
-
 
     .illustration img {
         width: 25%;
@@ -944,27 +929,26 @@ h2 {
 
 
     /* Footer */
-    #accueil .footer {
+    /* #accueil .footer {
         display: none;
-    }
+    } */
 
     #projets #galerie+.footer {
-        display: block;
+        /* display: block; */
         right: initial;
         left: 50%;
-        bottom: 2%;
         transform: translateX(-50%);
     }
 }
 
-@media all and (max-width: 1150px) {
+/* @media all and (max-width: 1150px) {
 
-    /* Footer */
+    Footer
 
     #projets .footer {
         display: none;
     }
-}
+} */
 
 
 @media all and (max-width: 1270px) {
