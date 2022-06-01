@@ -78,6 +78,7 @@ const liens = [
   "./projets/projets-javascript/recherche-github/recherche-github.html",
   "./projets/projets-javascript/generateur-css-linear-gradient/linear-gradient-app.html",
   "./projets/projets-javascript/generateur-css-style-img/generateur-css-style-img.html",
+  "./projets/projets-javascript/jeu-de-memoire/jeu-memoire.html"
 ];
 
 if (window.matchMedia("(max-width: 650px)").matches) {

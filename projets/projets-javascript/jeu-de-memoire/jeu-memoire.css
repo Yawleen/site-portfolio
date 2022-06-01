@@ -1,0 +1,120 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: rgba(34, 34, 34, 0.551);
+}
+
+button {
+    display: none;
+    position: absolute;
+    padding: 15px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    border-radius: 0;
+    border: none;
+    cursor: pointer;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 150px);
+    justify-content: center;
+    align-content: center;
+    gap: 20px;
+    min-height: 100vh;
+    width: 660px;
+    max-width: 100%;
+    margin: 0 auto;
+    perspective: 2000px;
+}
+
+.card {
+    position: relative;
+    width: 100%;
+    height: 150px;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    -moz-backface-visibility: hidden;
+    transition: transform 0.3s;
+}
+
+.card.flipped {
+    transform: rotateY(180deg);
+}
+
+.card.disappear .verso {
+    opacity: 0;
+}
+
+.recto, .verso {
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.recto {
+    background-image: url(img/recto.png);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.verso {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #f1f1f1;
+    background-position: center;
+    background-repeat: no-repeat;
+    transform: rotateY(-180deg);
+    z-index: -1;
+    transition: opacity 0.5s;
+    border: 1.8px solid #222;
+}
+
+
+[data-name="figma"] {
+    background-image: url(img/figma.png);
+    background-size: 60px;
+}
+
+[data-name="javascript"] {
+    background-image: url(img/javascript.png);
+    background-size: 48px;
+}
+
+[data-name="css"] {
+    background-image: url(img/css.png);
+    background-size: 65px;
+}
+
+[data-name="html"] {
+    background-image: url(img/html.png);
+    background-size: 65px;
+}
+
+[data-name="bootstrap"] {
+    background-image: url(img/bootstrap.png);
+    background-size: 95px;
+}
+
+[data-name="vs-code"] {
+    background-image: url(img/vs-code.png);
+    background-size: 50px;
+}
+
+[data-name="git"] {
+    background-image: url(img/git.png);
+    background-size: 55px;
+}
+
+[data-name="github"] {
+    background-image: url(img/github.png);
+    background-size: 80px;
+}
