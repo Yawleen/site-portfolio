@@ -171,7 +171,7 @@ inputsRange[6].addEventListener("input", (e) => { // dès que l'input permettant
 // Boutons
 
 btnRandom.addEventListener("click", () => { // dès qu'on clique sur le bouton random
-  fetch("https://source.unsplash.com/500x500").then((data) => { // une requête HTTP est effectuée pour récupérer une image random sur unsplash
+  fetch("https://picsum.photos/500/500?random").then((data) => { // une requête HTTP est effectuée pour récupérer une image aléatoire sur picsum
     afficherImg(data.url); // cette image est affichée
   });
 });
